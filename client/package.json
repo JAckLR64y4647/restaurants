@@ -2,7 +2,9 @@
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "axios": "^1.8.4",
+    "i18next": "^24.2.3",
     "postcss": "^8.5.3",
+    "react-i18next": "^15.4.1",
     "react-router-dom": "^6.30.0",
     "tailwindcss": "^4.1.3"
   }

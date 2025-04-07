@@ -3,13 +3,16 @@ import LoginForm from '../components/LoginForm';
 
 const LoginPage = () => {
   const [error, setError] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const handleLogin = (data) => {
-    // Логика для авторизации пользователя
-    if (data.username && data.password) {
-      // Успешная авторизация
+  const handleLogin = async (data) => {
+    if (data.email === 'test@example.com' && data.password === 'password') {
+      setIsAuthenticated(true);
+      setError('');
+      return { success: true };
     } else {
       setError('Неверные данные');
+      return { error: 'Неверные данные' };
     }
   };
 
@@ -17,7 +20,11 @@ const LoginPage = () => {
     <div className="login-page">
       <h1>Вход</h1>
       {error && <p className="error">{error}</p>}
-      <LoginForm onSubmit={handleLogin} />
+      {isAuthenticated ? (
+        <p>Добро пожаловать!</p>
+      ) : (
+        <LoginForm onSubmit={handleLogin} />
+      )}
     </div>
   );
 };

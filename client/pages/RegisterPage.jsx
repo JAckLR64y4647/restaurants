@@ -4,10 +4,10 @@ import RegisterForm from '../components/RegisterForm';
 const RegisterPage = () => {
   const [error, setError] = useState('');
 
-  const handleRegister = (data) => {
-    // Логика для регистрации пользователя
-    if (data.username && data.password) {
-      // Успешная регистрация
+  const handleRegister = async (data) => {
+    if (data.email && data.password) {
+      setError('');
+      await registerUser(data);
     } else {
       setError('Пожалуйста, заполните все поля');
     }
